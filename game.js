@@ -44,15 +44,23 @@ function game(e) {
                 break;
 
         }
+        if (computerScore > 4 || playerScore > 4) {
+            let instructionsBox = document.querySelector('.intro');
+            resultDiv.textContent = '';
+            instructionsBox.textContent = `Game Over! Final score is You: ${playerScore} and Computer: ${computerScore}. Refresh to play again.`
+            document.getElementById("Rock").disabled = true;
+            document.getElementById("Paper").disabled = true;
+            document.getElementById("Scissor").disabled = true;
+
+
+
+        }
     }
+
+
         , 1000);
 
-    if (computerScore > 4 || playerScore > 4) {
-        let instructionsBox = document.querySelector('.instructions');
-        instructionsBox.textContent = `Game Over!`
 
-
-    }
 
 }
 
