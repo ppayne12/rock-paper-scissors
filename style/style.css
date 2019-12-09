@@ -1,0 +1,81 @@
+html {
+    background: rgba(226,226,226,1);
+    background: -moz-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.93) 35%, rgba(209,209,209,0.9) 51%, rgba(254,254,254,0.81) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(226,226,226,1)), color-stop(35%, rgba(219,219,219,0.93)), color-stop(51%, rgba(209,209,209,0.9)), color-stop(100%, rgba(254,254,254,0.81)));
+    background: -webkit-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.93) 35%, rgba(209,209,209,0.9) 51%, rgba(254,254,254,0.81) 100%);
+    background: -o-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.93) 35%, rgba(209,209,209,0.9) 51%, rgba(254,254,254,0.81) 100%);
+    background: -ms-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.93) 35%, rgba(209,209,209,0.9) 51%, rgba(254,254,254,0.81) 100%);
+    background: linear-gradient(to right, rgba(226,226,226,1) 0%, rgba(219,219,219,0.93) 35%, rgba(209,209,209,0.9) 51%, rgba(254,254,254,0.81) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=1 );
+   
+  }
+
+
+  body,html {
+    font-family: 'Roboto', sans-serif;
+    color: rgb(63, 63, 63);
+
+  }
+
+  h1{
+    margin-left: 20px;
+    margin-top: 50px;
+    font-size: 40px;
+  }
+
+.game{
+    display: flex;
+    min-height: 50vh; 
+    align-items: center;
+    justify-content: center;
+  }
+
+.hands{
+    transition: all 2s ease;
+}
+
+.instructions{
+    text-align: center;
+    margin: auto;
+    height: 100px;
+    max-width: 50vw;
+    border: solid;
+    color: rgb(53, 46, 46);    
+    border-radius: 25px;
+
+}
+.scores{
+    position: fixed;
+    left: 0;
+    bottom: 0%;
+    width: 100%;
+  }
+
+.results,.intro{
+    display: block;
+    margin-top: 8px;
+    font-size:20px;
+}
+
+.playerScore{
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.computerScore{
+    float:right;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+button{
+    background: none;
+    border: none;
+    margin: 0 10px 0;
+}
+
+.playing{
+    transform: scale(1.4);
+
+}
