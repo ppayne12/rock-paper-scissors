@@ -7,77 +7,150 @@ html {
     background: -ms-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.93) 35%, rgba(209,209,209,0.9) 51%, rgba(254,254,254,0.81) 100%);
     background: linear-gradient(to right, rgba(226,226,226,1) 0%, rgba(219,219,219,0.93) 35%, rgba(209,209,209,0.9) 51%, rgba(254,254,254,0.81) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=1 );
-   
-  }
-
-
-  body,html {
-    font-family: 'Roboto', sans-serif;
-    color: rgb(63, 63, 63);
 
   }
+/*
+  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Bebas Neue', cursive;
+  */
+
 
   h1{
-    margin-left: 20px;
-    margin-top: 50px;
-    font-size: 40px;
-  }
-
-.game{
-    display: flex;
-    min-height: 50vh; 
-    align-items: center;
-    justify-content: center;
-  }
-
-.hands{
-    transition: all 2s ease;
-}
-
-.instructions{
     text-align: center;
-    margin: auto;
-    height: 100px;
-    max-width: 50vw;
-    border: solid;
-    color: rgb(53, 46, 46);    
-    border-radius: 25px;
-    margin-top: 8px;
-    font-size:20px;
-
-}
-.scores{
-    position: fixed;
-    left: 0;
-    bottom: 0%;
-    width: 100%;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 70px;
+    margin-top: 20px
   }
 
-.results,.intro{
+  p{
+    text-align:center;
+    margin: 8px 0 15px 0;
+
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  button{
     display: block;
-    margin-top: 8px;
-    font-size:20px;
-}
-
-.playerScore{
-    float: left;
-    margin-left: 10px;
-    margin-bottom: 5px;
-}
-
-.computerScore{
-    float:right;
-    margin-right: 10px;
-    margin-bottom: 5px;
-}
-
-button{
     background: none;
     border: none;
-    margin: 0 10px 0;
+    margin: 15px auto;
+    
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 25px;
+    background-color: rgba(254,254,254,0.81);
+    width: 100%;
+    font-family: 'Roboto Mono', monospace;
+    font-size:15px;
+    line-height: 25px;
+    }
+
+  img.hands{
+    width: 80px;
+    height: 80px;
+    transition: all .5s ease;
+
+  }
+
+  
+
+
+  .flex-container {
+    display: -webkit-flex;
+    display: flex;
+  }
+  
+  .controls {
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    width: 14vw;
+    height: 65vh;
+    min-width:200px;
+    min-height:435px;
+    border: solid;
+    border-radius: 10px;
+    border-color: rgb(37, 37, 37);
+    box-shadow:2px 2px rgb(165, 165, 165);  
+
+  }
+
+  .left{
+    margin-left:auto;
+  }
+
+  .right{
+    margin-right:auto;
+  }
+
+  .score{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    margin-left: -40px;
+    background: rgb(71, 69, 69);
+    color: rgb(212, 59, 59);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 75px;
+    font-weight: bold;
+    text-align:center;
+    border-radius: 5px;
+  }
+
+  .game-board {
+    width: 40vw;
+    height: 40vh;
+    margin: auto;
+    min-width: 400px;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .hands-playing{
+    width:140px;
+    height: 125px;
+    margin: 20px;
+
+  }
+
+  .results{
+    font-family: 'Roboto Mono', monospace;
+    margin-top: 25px;
+    font-style: italic;
+    font-size:25px;
+    height:30px;
+    text-align: center;
+  }
+  
+  .hands-box{
+    display: inline;
+  }
+
+
+  .playing{
+    transform: scale(1.2);
+
 }
 
-.playing{
-    transform: scale(1.4);
+  #flip{
+    transform: scaleX(-1);
 
-}
+  }
+
+
+
+ 
+
+ 

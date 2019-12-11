@@ -20,47 +20,44 @@ function game(e) {
     const playerSelection = this.id;
     const computerSelection = computerPlay();
     const roundResult = playRound(playerSelection, computerSelection);
-
-    let resultDiv = document.querySelector('.results');
-    resultDiv.textContent = "";
-    resultDiv.insertAdjacentHTML('beforeend', '<p>and the winner is ...</p>');
-    setTimeout(() => {
-        switch (roundResult) {
-            case 0:
-                resultDiv.insertAdjacentHTML('beforeend', "<p>It's a tie!</p>");
-                break;
-            case 1:
-                resultDiv.insertAdjacentHTML('beforeend', `<p>You win! ${playerSelection} beats ${computerSelection}.</p>`);
-                playerScore++;
-                (document.querySelector('.playerScore')).textContent = String(playerScore);
-                break;
-            case 2:
-                resultDiv.insertAdjacentHTML('beforeend', `<p>You loose! ${computerSelection} beats ${playerSelection}.</p>`);
-                computerScore++;
-                (document.querySelector('.computerScore')).textContent = String(computerScore);
-                break;
-            case 3:
-                resultDiv.insertAdjacentHTML('beforeend', "<p>Unknown input - round skipped!</p>");
-                break;
-
-        }
-        if (computerScore > 4 || playerScore > 4) {
-            let instructionsBox = document.querySelector('.intro');
-            resultDiv.textContent = '';
-            instructionsBox.textContent = `Game Over! Final score is You: ${playerScore} and Computer: ${computerScore}. Refresh to play again.`
-            document.getElementById("Rock").disabled = true;
-            document.getElementById("Paper").disabled = true;
-            document.getElementById("Scissor").disabled = true;
-
-
-
-        }
+    let roundResultText;
+    switch (roundResult) {
+        case 0:
+            roundResultText = "It's a tie!";
+            break;
+        case 1:
+            roundResultText = "You Win!";
+            playerScore++;
+            break;
+        case 2:
+            roundResultText = "Computer Wins!";
+            computerScore++;
+            break;
+        case 3:
+            roundResultText = "unknown inputs";
+            break;
     }
 
+    showHands(playerSelection, computerSelection);
+    updateResult(roundResultText);
+    updateScore(playerScore, computerScore);
 
-        , 1000);
+    if (playerScore > 4 || computerScore > 4) {
+        document.getElementById("Rock").disabled = true;
+        document.getElementById("Paper").disabled = true;
+        document.getElementById("Scissor").disabled = true;
+        setTimeout(() => {
+            let handsBox = document.querySelector(".hands-box");
+            handsBox.textContent = '';
 
+            if (playerScore > 4) {
+                document.querySelector(".results").innerHTML = "Game Over - You Win!<br /> Refresh to Playing Again.";
+            } else {
+                document.querySelector(".results").innerHTML = "Game Over - You Lose!<br /> Refresh to Playing Again.";
+            }
+        }, 1500);
 
+    }
 
 }
 
@@ -115,6 +112,37 @@ function playRound(player1, player2) {
 function transition(e) {
     if (e.propertyName !== 'transform') return;
     e.target.classList.remove('playing');
+}
+
+function updateScore(playerScore, computerScore) {
+    (document.querySelector('#playerScore')).textContent = playerScore;
+    (document.querySelector('#computerScore')).textContent = computerScore;
+
+}
+
+function showHands(player1, player2) {
+    let handsBox = document.querySelector(".hands-box");
+    handsBox.innerHTML = "";
+    let leftHand = document.createElement('img');
+    let rightHand = document.createElement('img');
+    leftHand.classList.add("hands-playing");
+    rightHand.classList.add("hands-playing");
+    leftHand.setAttribute("src", `style/${player1.toLowerCase()}.png`);
+    if (player1.toLowerCase() === "rock") {
+        leftHand.setAttribute("id", "flip");
+    }
+    if (player2.toLowerCase() === "paper" || player2.toLowerCase() === "scissor") {
+        rightHand.setAttribute("id", "flip");
+    }
+    rightHand.setAttribute("src", `style/${player2.toLowerCase()}.png`);
+
+    handsBox.appendChild(leftHand);
+    handsBox.appendChild(rightHand);
+
+}
+
+function updateResult(resultText) {
+    document.querySelector(".results").textContent = resultText;
 }
 
 function getRndInteger(min, max) {
