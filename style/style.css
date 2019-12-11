@@ -75,7 +75,7 @@ html {
     border: solid;
     border-radius: 10px;
     border-color: rgb(37, 37, 37);
-    box-shadow:2px 2px rgb(165, 165, 165);  
+    box-shadow:2px 2px #a5a5a5;  
     background-color: white;
 
   }
